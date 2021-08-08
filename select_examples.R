@@ -14,3 +14,5 @@ starwars %>% select(homeworld, height, mass)
 # Select variables by name
 starwars %>% select(mass)
 
+# add a line from Andy 8-Aug-2021 (not Andy EF)
+starwars %>% select(homeworld)
