@@ -34,10 +34,16 @@ SD <- read_csv("SD1.csv") %>%
 Data_cancer <- read_csv("EF_Data_v4_Cancer.csv") %>%
   bind_cols(OD, SD)
 
-test_score_df %>% 
+Data_cancer_outlier_OD <- Data_cancer %>% 
   mutate(outlier_OD = case_when(OD >= 70 ~ 'Yes'
                                      ,(test_score_vector >= 60) & (major != 'statistics') ~ 'Pass'
-                                     ,TRUE ~ 'Fail'))
+                                     ,TRUE ~ 'No'))
+
+Data_cancer_outlier_OD_SD <- Data_cancer %>% 
+  mutate(outlier_OD = case_when(OD >= 70 ~ 'Yes'
+                                ,(test_score_vector >= 60) & (major != 'statistics') ~ 'Pass'
+                                ,TRUE ~ 'No'))
+
 
 #####################################################
 OD1 <- read_csv("OD1.csv")
