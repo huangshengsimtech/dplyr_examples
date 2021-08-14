@@ -1,0 +1,5 @@
+#Data Options
+infile_data		<-"EF_Data_v4_Cancer.csv"
+infile_OD		<-"OD1.csv"
+infile_SD		<-"SD1.csv"
+outfile			<-"EF_Data_v4_Cancer_OD_SD.csv"   
