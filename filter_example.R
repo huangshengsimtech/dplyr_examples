@@ -1,5 +1,4 @@
 library(tidyverse)
-library(dplyr)
 data(starwars)
 xxx <- filter(starwars, species == "Droid")
 # In original example, row.names was used. But for our case, I have to remove 
