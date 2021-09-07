@@ -43,4 +43,27 @@ starwars_summarise_pipe <- starwars %>%
             ave_weight = mean(mass, na.rm = TRUE),
             count = n())
 
+clustering_results <- read_csv("clustering_results.csv")
 
+clustering_counts_6 <- clustering_results %>%
+  group_by(Cluster) %>%
+  summarise(
+    CANCER = sum(diagnosis == "CANCER", na.rm=T),
+    HIGH_GRADE_DYSPLASIA = sum(diagnosis == "HIGH_GRADE_DYSPLASIA", na.rm=T),
+    LOW_GRADE_DYSPLASIA = sum(diagnosis == "LOW_GRADE_DYSPLASIA", na.rm=T),
+    METAPLASIA = sum(diagnosis == "METAPLASIA", na.rm=T),
+    GASTRITIS = sum(diagnosis == "GASTRITIS", na.rm=T),
+    NORMAL = sum(diagnosis == "NORMAL", na.rm=T)) 
+
+
+
+read_csv("clustering_results.csv") %>%
+  group_by(Cluster) %>%
+  summarise(
+    CANCER = sum(diagnosis == "CANCER", na.rm=T),
+    HIGH_GRADE_DYSPLASIA = sum(diagnosis == "HIGH_GRADE_DYSPLASIA", na.rm=T),
+    LOW_GRADE_DYSPLASIA = sum(diagnosis == "LOW_GRADE_DYSPLASIA", na.rm=T),
+    METAPLASIA = sum(diagnosis == "METAPLASIA", na.rm=T),
+    GASTRITIS = sum(diagnosis == "GASTRITIS", na.rm=T),
+    NORMAL = sum(diagnosis == "NORMAL", na.rm=T)) %>%
+  write_csv("clustering_counts_6.csv")
