@@ -20,7 +20,8 @@ EF_Data_v4_CANCER <- EF_Data_v4 %>%
 EF_Data_v4_CANCER %>%
   write_csv("EF_Data_v4_CANCER.csv")
 
-# Search and replace
+# Search and replace using across()
+# Detailed across notes see notes on 5-Aug-2021.
 EF_Data_v4_CDMG <- EF_Data_v4 %>%
   filter(diagnosis != "NORMAL") %>% 
   mutate(across(diagnosis, str_replace, "HIGH_GRADE_DYSPLASIA", "DYSPLASIA")) %>% 
