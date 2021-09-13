@@ -19,3 +19,11 @@ IM_Antrum_patient <- IM_Antrum %>%
 
 
 write.csv(IM_Antrum_patient, file = "IM_Antrum_patient.csv")
+
+# Search and replace using across()
+EF_Data_v4_IM <- EF_Data_v4 %>%
+  filter(diagnosis == "METAPLASIA") %>% 
+  mutate(across(diagnosis, str_replace, "METAPLASIA", "IM")) 
+
+EF_Data_v4_IM %>%
+  write_csv("EF_Data_v4_IM.csv")
